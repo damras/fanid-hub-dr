@@ -1,5 +1,5 @@
 resource "azurerm_public_ip" "pip-firewall" {
-  name                = "pip-azure-firewall"
+  name                = "pip-dr-azure-firewall-ne-01"
   location            = var.rg-location
   resource_group_name = var.rg-name
   allocation_method   = "Static"
@@ -25,7 +25,7 @@ resource "azurerm_firewall_policy" "fw-policy" {
 }
 
 resource "azurerm_firewall" "azure-ext-fw" {
-  name                = "fw-${var.customer-name}-hub-${var.location-prefix}-01"
+  name                = "fw-${var.customer-name}-hub-${var.env}-${var.location-prefix}-01"
   location            = var.rg-location
   resource_group_name = var.rg-name
   sku_tier            = "Premium"
