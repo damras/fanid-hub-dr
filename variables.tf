@@ -17,4 +17,6 @@ variable "creationdate" {
 
 variable "firewall-subnet-id" {}
 variable "la-workspace-id" {}
-variable "aks-subnet-address-space" {}
+variable "aks-subnet-address-space" { 
+  type = list(string)
+}

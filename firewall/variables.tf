@@ -24,4 +24,6 @@ variable "createdby" {
 variable "creationdate" { 
 }
 
-variable "aks-subnet-address-space" {}
+variable "aks-subnet-address-space" {
+  type=list(string)
+}

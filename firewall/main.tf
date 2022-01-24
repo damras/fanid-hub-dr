@@ -56,21 +56,21 @@ resource "azurerm_firewall_policy_rule_collection_group" "aks-rule-collection" {
     name = "aks-network-rule-collection"
     rule {
        name = "FWR-AKS-AZURE-GLOBAL-001"
-       source_addresses = [var.aks-subnet-address-space]
+       source_addresses = var.aks-subnet-address-space
        destination_addresses = ["AzureCloud"]
        destination_ports = ["1194"]
        protocols = ["UDP"]
     }   
     rule {
        name = "FWR-AKS-AZURE-GLOBAL-002"
-       source_addresses = [var.aks-subnet-address-space]
+       source_addresses = var.aks-subnet-address-space
        destination_ports = ["9000"]
        destination_addresses = ["AzureCloud"]
        protocols = ["TCP"]
     }
     rule {
        name = "FWR-AKS-AZURE-GLOBAL-003"
-       source_addresses = [var.aks-subnet-address-space]
+       source_addresses = var.aks-subnet-address-space
        destination_ports = ["123"]
        destination_addresses = ["ntp.ubuntu.com"]
        protocols = ["UDP"]
@@ -85,7 +85,7 @@ resource "azurerm_firewall_policy_rule_collection_group" "aks-rule-collection" {
     rule {
        name = "FWARG-AKS-REQUIREMENTS-001"
 
-       source_addresses = [var.aks-subnet-address-space]
+       source_addresses = var.aks-subnet-address-space
        destination_fqdn_tags = ["AzureKubernetesService"]
 
        protocols {
